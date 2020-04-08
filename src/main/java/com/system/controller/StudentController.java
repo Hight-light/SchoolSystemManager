@@ -10,6 +10,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -118,6 +119,16 @@ public class StudentController {
         return "student/overCourse";
     }
 
+    //搜索课程
+    @RequestMapping(value = "selectCourse", method = {RequestMethod.POST})
+    private String selectCourse(String findByName, Model model) throws Exception {
+
+        List<CourseCustom> list = courseService.findByName(findByName);
+
+        model.addAttribute("courseList", list);
+        return "student/showCourse";
+    }
+    
     //修改密码
     @RequestMapping(value = "/passwordRest")
     public String passwordRest() throws Exception {

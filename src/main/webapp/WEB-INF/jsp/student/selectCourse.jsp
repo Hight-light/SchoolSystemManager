@@ -61,7 +61,7 @@
 										<td>${item.couseCustom.coursetype}</td>
 										<td>${item.couseCustom.score}</td>
 										<td>
-											<button class="btn btn-default btn-xs btn-info" onClick="location.href='/student/outCourse?id=${item.courseid}'">退课</button>
+											<button class="btn btn-default btn-xs btn-info" onClick="location.href='${pageContext.request.contextPath}/student/outCourse?id=${item.courseid}'">退课</button>
 											<!--弹出框-->
 										</td>
 									</tr>

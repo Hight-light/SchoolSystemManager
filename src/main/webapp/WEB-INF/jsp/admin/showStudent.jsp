@@ -35,7 +35,7 @@
 									<span class="input-group-addon btn" id="sub">搜索</span>
 								</div>
 							</form>
-							<button class="btn btn-default col-md-2" style="margin-top: 20px" onClick="location.href='/admin/addStudent'">
+							<button class="btn btn-default col-md-2" style="margin-top: 20px" onClick="location.href='${pageContext.request.contextPath}/admin/addStudent'">
 								添加用户信息
 								<sapn class="glyphicon glyphicon-plus"/>
 							</button>
@@ -64,8 +64,8 @@
 									<td><fmt:formatDate value="${item.grade}" dateStyle="medium" /></td>
 									<td>${item.collegeName}</td>
 									<td>
-										<button class="btn btn-default btn-xs btn-info" onClick="location.href='/admin/editStudent?id=${item.userid}'">修改</button>
-										<button class="btn btn-default btn-xs btn-danger btn-primary" onClick="location.href='/admin/removeStudent?id=${item.userid}'">删除</button>
+										<button class="btn btn-default btn-xs btn-info" onClick="location.href='${pageContext.request.contextPath}/admin/editStudent?id=${item.userid}'">修改</button>
+										<button class="btn btn-default btn-xs btn-danger btn-primary" onClick="location.href='${pageContext.request.contextPath}/admin/removeStudent?id=${item.userid}'">删除</button>
 										<!--弹出框-->
 									</td>
 								</tr>

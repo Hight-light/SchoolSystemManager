@@ -34,7 +34,7 @@
                             <!-分割线--->
                             <li role="presentation" class="divider"></li>
                             <li role="presentation">
-                                <a role="menuitem" tabindex="-1" href="/logout">
+                                <a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/logout">
                                     <span class="glyphicon glyphicon-off pull-right"></span>
                                     注销
                                 </a>

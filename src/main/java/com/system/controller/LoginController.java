@@ -23,7 +23,8 @@ public class LoginController {
     //登录表单处理
     @RequestMapping(value = "/login", method = {RequestMethod.POST})
     public String login(Userlogin userlogin) throws Exception {
-
+    	
+    	System.out.println(userlogin.toString());
         //Shiro实现登录
         UsernamePasswordToken token = new UsernamePasswordToken(userlogin.getUsername(),
                 userlogin.getPassword());

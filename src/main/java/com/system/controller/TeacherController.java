@@ -76,6 +76,16 @@ public class TeacherController {
 
         return "redirect:/teacher/gradeCourse?id="+scc.getCourseid();
     }
+    
+    //搜索课程
+    @RequestMapping(value = "selectCourse", method = {RequestMethod.POST})
+    private String selectCourse(String findByName, Model model) throws Exception {
+
+        List<CourseCustom> list = courseService.findByName(findByName);
+
+        model.addAttribute("courseList", list);
+        return "teacher/showCourse";
+    }
 
     //修改密码
     @RequestMapping(value = "/passwordRest")
