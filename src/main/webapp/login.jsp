@@ -14,20 +14,22 @@
 <body>
     <div class="content">
         <div class="form sign-in">
-            <h2>欢迎回来</h2>
-            <label>
-                <span>用户名</span>
-                <input class='input' type="email" id="username" />
-            </label>
-            <label>
-                <span>密码</span>
-                <input class='input' type="password" id="password" />
-            </label>
-           	<div style='width:50%;height:20px;line-height:74px;text-align:center;margin:auto'>
-             <input type="radio" name='role' value='2' checked/>用户  
-             <input type="radio" name='role' value='0'/>管理员
-            </div>
-            <button type="button" class="submit" onclick="login()">登 录</button>
+       		<form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/login" id="from1" onsubmit="login()" method="post">
+	            <h2>欢迎回来</h2>
+	            <label>
+	                <span>用户名</span>
+	                <input class='input' type="text" id="username" name='username' />
+	            </label>
+	            <label>
+	                <span>密码</span>
+	                <input class='input' type="password" id="password" name='password' />
+	            </label>
+	           <!-- 	<div style='width:50%;height:20px;line-height:74px;text-align:center;margin:auto'>
+	             <input type="radio" name='role' value='2' checked/>用户  
+	             <input type="radio" name='role' value='0'/>管理员
+	            </div> -->
+	            <button type="submit" class="submit" >登 录</button>
+            </form>
         </div>
         <div class="sub-cont">
             <div class="img">
@@ -107,26 +109,28 @@ document.querySelector('.img__btn').addEventListener('click', function() {
            alert("请输入用户名和密码")
             return
         }
-       var role = $("input[name='role']:checked").val() 
-       //location.href=$("#contextPath").val()+'/login?username='+$("#username").val()+"&password="+$("#password").val()+"&role="+role
-        $.ajax({
+      /*  var role = $("input[name='role']:checked").val() 
+       location.href=$("#contextPath").val()+'/login?username='+$("#username").val()+"&password="+$("#password").val() */
+       /*  $.ajax({
             url:$("#contextPath").val()+"/login",
             method:'post',
             data:{'username':$("#username").val(),'password':$("#password").val(),'role':role},
             success:function(res){
-                /* if(res.success){
+                 if(res.success){
                     setTips(true,"验证成功",function(){
                         window.location.href = "index"
                     },800)
 
                 }else{
                     layer.msg(res.msg,{icon:2})
-                } */
+                } 
+                console.log(res)
             },
             error:function (err) {
                 console.log(err)
             }
-        }) 
+        })  
+        */
     }
 </SCRIPT>
 </html>

@@ -23,24 +23,24 @@ public class LoginController {
     //登录表单处理
     @RequestMapping(value = "/login", method = {RequestMethod.POST})
     public String login(Userlogin userlogin) throws Exception {
+    	System.out.println("进入后台");
     	
-    	System.out.println(userlogin.toString());
-        //Shiro实现登录
-        UsernamePasswordToken token = new UsernamePasswordToken(userlogin.getUsername(),
-                userlogin.getPassword());
-        Subject subject = SecurityUtils.getSubject();
-
-        //如果获取不到用户名就是登录失败，但登录失败的话，会直接抛出异常
-        subject.login(token);
-
-        if (subject.hasRole("admin")) {
-            return "redirect:/admin/showStudent";
-        } else if (subject.hasRole("teacher")) {
-            return "redirect:/teacher/showCourse";
-        } else if (subject.hasRole("student")) {
-            return "redirect:/student/showCourse";
-        }
-
+	        //Shiro实现登录
+	        UsernamePasswordToken token = new UsernamePasswordToken(userlogin.getUsername(),
+	                userlogin.getPassword());
+	        Subject subject = SecurityUtils.getSubject();
+	
+	        //如果获取不到用户名就是登录失败，但登录失败的话，会直接抛出异常
+	        subject.login(token);
+	
+	        if (subject.hasRole("admin")) {
+	            return "redirect:/admin/showStudent";
+	        } else if (subject.hasRole("teacher")) {
+	            return "redirect:/teacher/showCourse";
+	        } else if (subject.hasRole("student")) {
+	            return "redirect:/student/showCourse";
+	        }
+    
         return "/login";
     }
 
